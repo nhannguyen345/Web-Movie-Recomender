@@ -5,9 +5,33 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello_world():
-    print(getdata.read_csv())
+def loading():
+    # print(getdata.read_csv())
+    return render_template("loading.html")
+
+
+@app.route("/login")
+def login():
+    # print(getdata.read_csv())
+    return render_template("login.html")
+
+
+@app.route("/signup")
+def signup():
+    # print(getdata.read_csv())
     return render_template("signup.html")
+
+
+@app.route("/homepage")
+def homepage():
+    # print(getdata.read_csv())
+    return render_template("homepage.html")
+
+
+@app.route("/ratingpage")
+def ratingpage():
+    # print(getdata.read_csv())
+    return render_template("ratingpage.html")
 
 
 if __name__ == "__main__":

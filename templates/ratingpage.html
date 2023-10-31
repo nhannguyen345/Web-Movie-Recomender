@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rating Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style-ratingpage.css') }}"
+    />
+  </head>
+
+  <body style="background-color: #111">
+    <div
+      class=""
+      style="
+        width: 100%;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.37) 60.89%,
+            #111 100.15%
+          ),
+          url('../static/img/ratingpage/toy-story-newsletter_1200x800_0000_button-01-1.jpg'),
+          lightgray 0px -27.139px / 100% 99.272%;
+        max-height: 80vh;
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-size: 100% 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      "
+    >
+      <div
+        class=""
+        style="
+          display: flex;
+          width: 100%;
+          height: max-content;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px;
+        "
+      >
+        <input
+          type="text"
+          style="
+            border-radius: 30px;
+            background: #292929;
+            box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            height: 50px;
+            padding: 0 20px 0 20px;
+            color: white;
+            font-size: 20px;
+          "
+          placeholder="Search for movies, TV shows..."
+        />
+        <img
+          id="avatar"
+          src="{{ url_for('static', filename='img/ratingpage/avatar.png') }}"
+          alt=""
+          style="
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin-left: 20px;
+          "
+        />
+      </div>
+
+      <div
+        class=""
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+          width: 90%;
+        "
+      >
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/ToyStoryLogo.png') }}"
+          alt=""
+        />
+        <div
+          class=""
+          style="
+            display: flex;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 457;
+            line-height: normal;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div class="">Drama</div>
+          <div
+            class=""
+            style="
+              width: 2px;
+              height: 2px;
+              border-radius: 100%;
+              background-color: white;
+              margin: 0 10px 0 10px;
+            "
+          ></div>
+          <div class="">Adventure</div>
+          <div
+            class=""
+            style="
+              width: 2px;
+              height: 2px;
+              border-radius: 100%;
+              background-color: white;
+              margin: 0 10px 0 10px;
+            "
+          ></div>
+          <div class="">7h 28m</div>
+        </div>
+        <div class="" style="display: flex; margin-top: 30px">
+          <button
+            style="
+              border-radius: 40px;
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              background: rgba(255, 255, 255, 0.9);
+              backdrop-filter: blur(20px);
+              width: 160px;
+              height: 50px;
+              color: #262626;
+              font-family: Inter;
+              font-size: 22px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <img
+              src="{{ url_for('static', filename='img/ratingpage/solar_heart-outline.svg') }}"
+              alt=""
+              style="margin-right: 10px"
+            />
+            Rating
+          </button>
+          <div
+            class=""
+            style="
+              display: flex;
+              flex-direction: column;
+              margin-left: 40px;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <div class="" style="display: flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M15.255 9.01325C17.3667 5.22659 18.4217 3.33325 20 3.33325C21.5783 3.33325 22.6333 5.22659 24.745 9.01325L25.2917 9.99325C25.8917 11.0699 26.1917 11.6083 26.6583 11.9633C27.125 12.3183 27.7083 12.4499 28.875 12.7133L29.935 12.9533C34.035 13.8816 36.0833 14.3449 36.5717 15.9133C37.0583 17.4799 35.6617 19.1149 32.8667 22.3833L32.1433 23.2283C31.35 24.1566 30.9517 24.6216 30.7733 25.1949C30.595 25.7699 30.655 26.3899 30.775 27.6283L30.885 28.7566C31.3067 33.1183 31.5183 35.2983 30.2417 36.2666C28.965 37.2366 27.045 36.3516 23.2083 34.5849L22.2133 34.1283C21.1233 33.6249 20.5783 33.3749 20 33.3749C19.4217 33.3749 18.8767 33.6249 17.785 34.1283L16.7933 34.5849C12.955 36.3516 11.035 37.2349 9.76 36.2683C8.48167 35.2983 8.69334 33.1183 9.11501 28.7566L9.225 27.6299C9.34501 26.3899 9.405 25.7699 9.225 25.1966C9.04834 24.6216 8.65001 24.1566 7.85667 23.2299L7.13334 22.3833C4.33834 19.1166 2.94167 17.4816 3.42834 15.9133C3.91667 14.3449 5.96667 13.8799 10.0667 12.9533L11.1267 12.7133C12.2917 12.4499 12.8733 12.3183 13.3417 11.9633C13.8083 11.6083 14.1083 11.0699 14.7083 9.99325L15.255 9.01325Z"
+                  fill="#FFD233"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M15.255 9.01325C17.3667 5.22659 18.4217 3.33325 20 3.33325C21.5783 3.33325 22.6333 5.22659 24.745 9.01325L25.2917 9.99325C25.8917 11.0699 26.1917 11.6083 26.6583 11.9633C27.125 12.3183 27.7083 12.4499 28.875 12.7133L29.935 12.9533C34.035 13.8816 36.0833 14.3449 36.5717 15.9133C37.0583 17.4799 35.6617 19.1149 32.8667 22.3833L32.1433 23.2283C31.35 24.1566 30.9517 24.6216 30.7733 25.1949C30.595 25.7699 30.655 26.3899 30.775 27.6283L30.885 28.7566C31.3067 33.1183 31.5183 35.2983 30.2417 36.2666C28.965 37.2366 27.045 36.3516 23.2083 34.5849L22.2133 34.1283C21.1233 33.6249 20.5783 33.3749 20 33.3749C19.4217 33.3749 18.8767 33.6249 17.785 34.1283L16.7933 34.5849C12.955 36.3516 11.035 37.2349 9.76 36.2683C8.48167 35.2983 8.69334 33.1183 9.11501 28.7566L9.225 27.6299C9.34501 26.3899 9.405 25.7699 9.225 25.1966C9.04834 24.6216 8.65001 24.1566 7.85667 23.2299L7.13334 22.3833C4.33834 19.1166 2.94167 17.4816 3.42834 15.9133C3.91667 14.3449 5.96667 13.8799 10.0667 12.9533L11.1267 12.7133C12.2917 12.4499 12.8733 12.3183 13.3417 11.9633C13.8083 11.6083 14.1083 11.0699 14.7083 9.99325L15.255 9.01325Z"
+                  fill="#FFD233"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M15.255 9.01325C17.3667 5.22659 18.4217 3.33325 20 3.33325C21.5783 3.33325 22.6333 5.22659 24.745 9.01325L25.2917 9.99325C25.8917 11.0699 26.1917 11.6083 26.6583 11.9633C27.125 12.3183 27.7083 12.4499 28.875 12.7133L29.935 12.9533C34.035 13.8816 36.0833 14.3449 36.5717 15.9133C37.0583 17.4799 35.6617 19.1149 32.8667 22.3833L32.1433 23.2283C31.35 24.1566 30.9517 24.6216 30.7733 25.1949C30.595 25.7699 30.655 26.3899 30.775 27.6283L30.885 28.7566C31.3067 33.1183 31.5183 35.2983 30.2417 36.2666C28.965 37.2366 27.045 36.3516 23.2083 34.5849L22.2133 34.1283C21.1233 33.6249 20.5783 33.3749 20 33.3749C19.4217 33.3749 18.8767 33.6249 17.785 34.1283L16.7933 34.5849C12.955 36.3516 11.035 37.2349 9.76 36.2683C8.48167 35.2983 8.69334 33.1183 9.11501 28.7566L9.225 27.6299C9.34501 26.3899 9.405 25.7699 9.225 25.1966C9.04834 24.6216 8.65001 24.1566 7.85667 23.2299L7.13334 22.3833C4.33834 19.1166 2.94167 17.4816 3.42834 15.9133C3.91667 14.3449 5.96667 13.8799 10.0667 12.9533L11.1267 12.7133C12.2917 12.4499 12.8733 12.3183 13.3417 11.9633C13.8083 11.6083 14.1083 11.0699 14.7083 9.99325L15.255 9.01325Z"
+                  fill="#FFD233"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M15.255 9.01325C17.3667 5.22659 18.4217 3.33325 20 3.33325C21.5783 3.33325 22.6333 5.22659 24.745 9.01325L25.2917 9.99325C25.8917 11.0699 26.1917 11.6083 26.6583 11.9633C27.125 12.3183 27.7083 12.4499 28.875 12.7133L29.935 12.9533C34.035 13.8816 36.0833 14.3449 36.5717 15.9133C37.0583 17.4799 35.6617 19.1149 32.8667 22.3833L32.1433 23.2283C31.35 24.1566 30.9517 24.6216 30.7733 25.1949C30.595 25.7699 30.655 26.3899 30.775 27.6283L30.885 28.7566C31.3067 33.1183 31.5183 35.2983 30.2417 36.2666C28.965 37.2366 27.045 36.3516 23.2083 34.5849L22.2133 34.1283C21.1233 33.6249 20.5783 33.3749 20 33.3749C19.4217 33.3749 18.8767 33.6249 17.785 34.1283L16.7933 34.5849C12.955 36.3516 11.035 37.2349 9.76001 36.2683C8.48167 35.2983 8.69334 33.1183 9.115 28.7566L9.225 27.6299C9.345 26.3899 9.405 25.7699 9.225 25.1966C9.04834 24.6216 8.65001 24.1566 7.85667 23.2299L7.13334 22.3833C4.33834 19.1166 2.94167 17.4816 3.42834 15.9133C3.91667 14.3449 5.96667 13.8799 10.0667 12.9533L11.1267 12.7133C12.2917 12.4499 12.8733 12.3183 13.3417 11.9633C13.8083 11.6083 14.1083 11.0699 14.7083 9.99325L15.255 9.01325Z"
+                  stroke="#FFD233"
+                  stroke-width="1.875"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M15.255 9.01325C17.3667 5.22659 18.4217 3.33325 20 3.33325C21.5783 3.33325 22.6333 5.22659 24.745 9.01325L25.2917 9.99325C25.8917 11.0699 26.1917 11.6083 26.6583 11.9633C27.125 12.3183 27.7083 12.4499 28.875 12.7133L29.935 12.9533C34.035 13.8816 36.0833 14.3449 36.5717 15.9133C37.0583 17.4799 35.6617 19.1149 32.8667 22.3833L32.1433 23.2283C31.35 24.1566 30.9517 24.6216 30.7733 25.1949C30.595 25.7699 30.655 26.3899 30.775 27.6283L30.885 28.7566C31.3067 33.1183 31.5183 35.2983 30.2417 36.2666C28.965 37.2366 27.045 36.3516 23.2083 34.5849L22.2133 34.1283C21.1233 33.6249 20.5783 33.3749 20 33.3749C19.4217 33.3749 18.8767 33.6249 17.785 34.1283L16.7933 34.5849C12.955 36.3516 11.035 37.2349 9.76001 36.2683C8.48167 35.2983 8.69334 33.1183 9.115 28.7566L9.225 27.6299C9.345 26.3899 9.405 25.7699 9.225 25.1966C9.04834 24.6216 8.65001 24.1566 7.85667 23.2299L7.13334 22.3833C4.33834 19.1166 2.94167 17.4816 3.42834 15.9133C3.91667 14.3449 5.96667 13.8799 10.0667 12.9533L11.1267 12.7133C12.2917 12.4499 12.8733 12.3183 13.3417 11.9633C13.8083 11.6083 14.1083 11.0699 14.7083 9.99325L15.255 9.01325Z"
+                  stroke="#FFD233"
+                  stroke-width="1.875"
+                />
+              </svg>
+            </div>
+            <div
+              class=""
+              style="
+                color: #fff;
+                font-family: Poppins;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-top: 10px;
+              "
+            >
+              3.0/ 10 votes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class=""
+      style="
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: max-content;
+        justify-content: start;
+        align-items: start;
+        margin: auto;
+      "
+    >
+      <div
+        class=""
+        style="
+          color: #fff;
+          text-align: center;
+          font-family: Inter;
+          font-size: 28px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+        "
+      >
+        More Like this
+      </div>
+      <div
+        class=""
+        style="
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          overflow-x: scroll;
+        "
+      >
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 4.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 40245.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 40246.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 40247.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 40248.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 4.png') }}"
+          alt=""
+        />
+        <img
+          src="{{ url_for('static', filename='img/ratingpage/Rectangle 40245.png') }}"
+          alt=""
+        />
+      </div>
+      <div
+        class=""
+        style="
+          color: #e8e8e8;
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          width: 100%;
+          border-top: 1px solid rgba(232, 232, 232, 0.25);
+          margin-top: 30px;
+          padding: 10px 0 10px 0;
+        "
+      >
+        Balto :
+        <p
+          style="
+            color: #3dd2cc;
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-left: 5px;
+          "
+        >
+          Adventure | Animation | Children
+        </p>
+      </div>
+      <div
+        class=""
+        style="
+          color: #e8e8e8;
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          border-top: 1px solid rgba(232, 232, 232, 0.25);
+          width: 100%;
+          padding: 10px 0 10px 0;
+        "
+      >
+        Kids of the Round Table :
+        <p
+          style="
+            color: #3dd2cc;
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-left: 5px;
+          "
+        >
+          Adventure | Children | Comedy | Fantasy
+        </p>
+      </div>
+      <div
+        class=""
+        style="
+          color: #e8e8e8;
+          font-family: Poppins;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          border-top: 1px solid rgba(232, 232, 232, 0.25);
+          width: 100%;
+          padding: 10px 0 10px 0;
+        "
+      >
+        Far From Home :
+        <p
+          style="
+            color: #3dd2cc;
+            font-family: Poppins;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            margin-left: 5px;
+          "
+        >
+          AThe Adventures of Yellow: Adventure | Children
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signup Movie</title>
+    <title>Login Movie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style-signup.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-login.css') }}" />
   </head>
 
   <body style="background-color: rgb(25, 25, 25)">
@@ -48,7 +45,7 @@
             font-size: 40px;
             height: fit-content;
           "
-          >Create an account</span
+          >Welcome back</span
         >
         <p
           style="
@@ -59,14 +56,8 @@
             color: #bababab8;
           "
         >
-          Let's get started with your 30 days free trial.
+          Welcome back! Please enter your details.
         </p>
-        <input type="text" name="" id="" placeholder="Name" />
-        <input type="text" name="" id="" placeholder="Email" />
-        <input type="text" name="" id="" placeholder="Password" />
-        <button class="btn-signup" type="submit" style="margin-top: 50px">
-          Create account
-        </button>
         <button
           class="btn-google"
           style="
@@ -108,10 +99,113 @@
             Sign up with Google
           </p>
         </button>
+        <div
+          class=""
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0 20px 0;
+            width: 100%;
+          "
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="153"
+            height="2"
+            viewBox="0 0 153 2"
+            fill="none"
+          >
+            <path d="M1 1H152" stroke="#4D4B4B" stroke-linecap="round" />
+          </svg>
+          <div
+            class=""
+            style="
+              color: #bababa;
+              font-family: Poppins;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              width: 10%;
+              text-align: center;
+            "
+          >
+            or
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="153"
+            height="2"
+            viewBox="0 0 153 2"
+            fill="none"
+          >
+            <path d="M1 1H152" stroke="#4D4B4B" stroke-linecap="round" />
+          </svg>
+        </div>
+        <input type="text" name="" id="" placeholder="Email" />
+        <input type="text" name="" id="" placeholder="Password" />
+        <div
+          class=""
+          style="
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 10px 0;
+          "
+        >
+          <div
+            class=""
+            style="display: flex; justify-content: start; align-items: center"
+          >
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              style="
+                width: 15px;
+                height: 15px;
+                border-radius: 4px;
+                border: 1px solid #4d4b4b;
+              "
+            />
+            <div
+              class=""
+              style="
+                color: rgba(254, 254, 254, 0.5);
+                font-family: Poppins;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-left: 10px;
+              "
+            >
+              Remember me for 30 days
+            </div>
+          </div>
+          <a
+            href="#"
+            style="
+              color: #fefefe;
+              font-family: Poppins;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-decoration-line: underline;
+            "
+            >Forgot password</a
+          >
+        </div>
+        <button class="btn-signup" type="submit" style="margin-top: 50px">
+          Log In
+        </button>
+
         <p class="question-account" style="font-size: 15px">
-          Already have an account?
-          <a style="font-size: 15px; color: white">Log in</a>
-        </p>
+            Don’t have an account? 
+          <a style="font-size: 15px; color: white; margin-left: 10px;">Sign up for free
       </div>
     </div>
   </body>

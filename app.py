@@ -35,7 +35,7 @@ def ratingpage():
 
 
 @app.route("/json")
-def ratingpage():
+def getjson():
     return getdata.read_csv()
 
 

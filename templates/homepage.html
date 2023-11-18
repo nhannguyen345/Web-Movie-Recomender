@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style-homepage.css') }}" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   </head>
 
   <body style="background-color: #111">
@@ -124,7 +127,7 @@
       style="
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 92%;
         height: max-content;
         justify-content: start;
         align-items: start;
@@ -142,11 +145,12 @@
           font-weight: 600;
           line-height: normal;
           margin-top: 15px;
+          margin-left: 10px;
         "
       >
           Trending
       </div>
-      <div
+      <!-- <div
         class=""
         style="
           display: flex;
@@ -164,7 +168,65 @@
         <img src="{{ url_for('static', filename='img/homepage/Rectangle 18 (1).png') }}" alt="" class="pic" />
         <img src="{{ url_for('static', filename='img/homepage/Rectangle 20.png') }}" alt="" class="pic"/>
         <img src="{{ url_for('static', filename='img/homepage/Rectangle 21.png') }}" alt="" class="pic" />
-      </div>
+      </div> -->
+      <!-- data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000" -->
+      <div class="MultiCarousel" >
+        <div class="MultiCarousel-inner">
+            <!-- <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 17.png') }}" alt="" class="pic"/>
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 18.png') }}" alt="" class="pic" />
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 17 (1).png') }}" alt=""  class="pic"/>
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 18 (1).png') }}" alt="" class="pic" />
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 20.png') }}" alt="" class="pic"/>
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <img src="{{ url_for('static', filename='img/homepage/Rectangle 21.png') }}" alt="" class="pic" />
+                    <p class="lead">Multi Item Carousel</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pad15">
+                    <p class="lead">Multi Item Carousel</p>
+                    <p>₹ 1</p>
+                    <p>₹ 6000</p>
+                    <p>50% off</p>
+                </div>
+            </div> -->
+            {% for item in data %}
+              <div class="item">
+                <div class="pad15">
+                  <img src="{{ url_for('static', filename='img/homepage/Rectangle 17.png') }}" alt="" class="pic"/>
+                  <p class="text-border">{{item.title}}</p>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
     </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
   </body>
 </html>

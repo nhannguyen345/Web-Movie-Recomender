@@ -1,16 +1,73 @@
 * {
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
-  body {
-    font-family: "Poppins", sans-serif;
-  }
-  
-  #avatar:hover {
-    cursor: pointer;
-  }
-  .pic{ 
-    margin-right: 30px;
-  }
-  
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#avatar:hover {
+  cursor: pointer;
+}
+
+.pic {
+  margin-right: 30px;
+}
+
+.MultiCarousel {
+  margin-left: 16px;
+  /* float: left;
+  overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  position: relative; */
+}
+/* .MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+} */
+
+.MultiCarousel-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.MultiCarousel .MultiCarousel-inner .item > div {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  /* background: #f1f1f1; */
+  color: #ffffff;
+}
+/* .MultiCarousel .leftLst,
+.MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(50% - 20px);
+}
+.MultiCarousel .leftLst {
+  left: 0;
+}
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #0c0c0c;
+} */
+
+.text-border {
+  width: 200px;
+  font-size: 16px;
+  text-wrap: wrap;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-inline-start: 3px;
+}

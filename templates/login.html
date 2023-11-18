@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style-login.css') }}" />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
 
   <body style="background-color: rgb(25, 25, 25)">
@@ -143,70 +144,80 @@
             <path d="M1 1H152" stroke="#4D4B4B" stroke-linecap="round" />
           </svg>
         </div>
-        <input type="text" name="" id="" placeholder="Email" />
-        <input type="text" name="" id="" placeholder="Password" />
-        <div
-          class=""
-          style="
-            width: 50%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0 10px 0;
-          "
-        >
+        <form
+          method="post"
+          action="http://127.0.0.1:5000/process_data"
+         style="display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;">
+          <input type="text" name="email" id="email" placeholder="Email" required/>
+          <input type="text" name="password" id="password" placeholder="Password" required/>
           <div
             class=""
-            style="display: flex; justify-content: start; align-items: center"
+            style="
+              width: 50%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin: 10px 0 10px 0;
+            "
           >
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              style="
-                width: 15px;
-                height: 15px;
-                border-radius: 4px;
-                border: 1px solid #4d4b4b;
-              "
-            />
             <div
               class=""
+              style="display: flex; justify-content: start; align-items: center"
+            >
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                style="
+                  width: 15px;
+                  height: 15px;
+                  border-radius: 4px;
+                  border: 1px solid #4d4b4b;
+                "
+              />
+              <div
+                class=""
+                style="
+                  color: rgba(254, 254, 254, 0.5);
+                  font-family: Poppins;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: normal;
+                  margin-left: 10px;
+                "
+              >
+                Remember me for 30 days
+              </div>
+            </div>
+            <a
+              href="#"
               style="
-                color: rgba(254, 254, 254, 0.5);
+                color: #fefefe;
                 font-family: Poppins;
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 400;
                 line-height: normal;
-                margin-left: 10px;
+                text-decoration-line: underline;
               "
+              >Forgot password</a
             >
-              Remember me for 30 days
-            </div>
           </div>
-          <a
-            href="#"
-            style="
-              color: #fefefe;
-              font-family: Poppins;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: normal;
-              text-decoration-line: underline;
-            "
-            >Forgot password</a
-          >
-        </div>
-        <button class="btn-signup" type="submit" style="margin-top: 50px">
-          Log In
-        </button>
+          <button id="btn-login" class="btn-signup" type="button" style="margin-top: 50px">
+            Log In
+          </button>
+        </form>
 
         <p class="question-account" style="font-size: 15px">
             Don’t have an account? 
           <a style="font-size: 15px; color: white; margin-left: 10px;">Sign up for free
       </div>
     </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css);
+
 * {
   padding: 0;
   margin: 0;
@@ -10,8 +12,8 @@ body {
 #avatar:hover {
   cursor: pointer;
 }
-.ratingStar{
-  width: 40px;
+/* .ratingStar{
+  width: fit-content;
   height: 40px;
   display: flex;
   position: relative;
@@ -27,4 +29,59 @@ body {
 
 .ratingStar i.active{
   color: #ff9c1a;
+} */
+
+.rating{
+border: none;
+  float: left;
 }
+
+.rating > input{
+  display: none;
+}
+
+.rating > label:before{
+  content: '\f005';
+  font-family: FontAwesome;
+  display: inline-block;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 1.5rem;
+
+}
+
+.rating > .half:before{
+  content: '\f089';
+  position: absolute;
+  cursor: pointer;
+}
+
+.rating > label{
+  color: #ddd;
+  float: right;
+  cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label{
+  color: #f7cd14;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label{
+  color: #f7cd14;
+}
+
+#ratingText{
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-family: Poppins;
+  font-size: 15px;
+}
+
+

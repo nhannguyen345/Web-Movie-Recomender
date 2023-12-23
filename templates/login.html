@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-login.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style-login.css') }}"
+    />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
 
@@ -147,13 +150,28 @@
         <form
           method="post"
           action="http://127.0.0.1:5000/process_data"
-         style="display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          width: 100%;">
-          <input type="text" name="email" id="email" placeholder="Email" required/>
-          <input type="text" name="password" id="password" placeholder="Password" required/>
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+          "
+        >
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
           <div
             class=""
             style="
@@ -171,7 +189,7 @@
               <input
                 type="checkbox"
                 name=""
-                id=""
+                id="showPassword"
                 style="
                   width: 15px;
                   height: 15px;
@@ -191,7 +209,7 @@
                   margin-left: 10px;
                 "
               >
-                Remember me for 30 days
+                Show password
               </div>
             </div>
             <a
@@ -208,14 +226,27 @@
               >Forgot password</a
             >
           </div>
-          <button id="btn-login" class="btn-signup" type="button" style="margin-top: 50px">
+          <button
+            id="btn-login"
+            class="btn-signup"
+            type="button"
+            style="margin-top: 40px"
+          >
             Log In
           </button>
         </form>
 
-        <p class="question-account" style="font-size: 15px">
-            Don’t have an account? 
-          <a style="font-size: 15px; color: white; margin-left: 10px;">Sign up for free
+        <p
+          class="question-account"
+          style="font-size: 15px; color: rgba(254, 254, 254, 0.5)"
+        >
+          Don’t have an account?
+          <a
+            href="/signup"
+            style="font-size: 15px; color: white; margin-left: 10px"
+            >Sign up for free</a
+          >
+        </p>
       </div>
     </div>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>

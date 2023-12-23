@@ -34,7 +34,7 @@
       />
       <form
         method="post"
-        action="http://127.0.0.1:5000/process_data"
+        action="http://127.0.0.1:5000/process_data1"
         class="form-sign-up"
         style="
           width: calc(100vw - 750px);
@@ -64,14 +64,23 @@
         >
           Let's get started with your 30 days free trial.
         </p>
-        <input type="text" name="name" id="" placeholder="Name" />
-        <input type="text" name="email" id="" placeholder="Email" />
-        <input type="text" name="password" id="" placeholder="Password" />
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="text" name="email" id="email" placeholder="Email" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+        />
+        <div class="checkbox-container">
+          <input type="checkbox" id="showPassword" />
+          <label for="showPassword">&nbsp;Show Password</label>
+        </div>
         <button
           id="btn-signup"
           class="btn-signup"
-          type="submit"
-          style="margin-top: 50px"
+          type="button"
+          style="margin-top: 40px"
         >
           Create account
         </button>
@@ -116,11 +125,15 @@
             Sign up with Google
           </p>
         </button>
-        <p class="question-account" style="font-size: 15px">
+        <p
+          class="question-account"
+          style="font-size: 15px; color: rgba(254, 254, 254, 0.5)"
+        >
           Already have an account?
-          <a style="font-size: 15px; color: white">Log in</a>
+          <a href="/login" style="font-size: 15px; color: white">Log in</a>
         </p>
       </form>
     </div>
+    <script src="{{ url_for('static', filename='js/signup.js') }}"></script>
   </body>
 </html>

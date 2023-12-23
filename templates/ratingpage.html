@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
@@ -51,6 +55,7 @@
         "
       >
         <input
+          id="searchInput"
           type="text"
           style="
             border-radius: 30px;
@@ -64,6 +69,7 @@
           "
           placeholder="Search for movies, TV shows..."
         />
+        <ul id="suggestionsList"></ul>
         <img
           id="avatar"
           src="{{ url_for('static', filename='img/ratingpage/avatar.png') }}"
@@ -103,9 +109,13 @@
             line-height: normal;
             justify-content: center;
             align-items: center;
+            margin-top: 30px;
           "
         >
-          <div class="">Drama</div>
+          <h2 style="color: white">{{result[0].title}} :&nbsp;</h2>
+          <h2 style="color: #3dd2cc">{{result[0].genres}}</h2>
+          <div id="id_movie" style="display: none">{{result[0].movieId}}</div>
+          <!-- <div class="">Drama</div>
           <div
             class=""
             style="
@@ -127,11 +137,13 @@
               margin: 0 10px 0 10px;
             "
           ></div>
-          <div class="">7h 28m</div>
+          <div class="">7h 28m</div> -->
         </div>
-        <div class="" style="display: flex; margin-top: 30px">
+        <div class="" style="display: flex; margin-top: 20px">
           <button
+            id="btn-rating"
             style="
+              margin-bottom: 30px;
               border-radius: 40px;
               border: 1px solid rgba(255, 255, 255, 0.2);
               background: rgba(255, 255, 255, 0.9);
@@ -404,6 +416,129 @@
         // Store data vào database
         // $('#rateValue').text(selectedValue);
         // console.log(selectedValue);
+      });
+
+      $("#btn-rating").click(function () {
+        var user_id = localStorage.getItem("id");
+        var rating_movie = $('input[name="rating"]').val();
+        var id_movie = $("#id_movie").text();
+        var arr_movieId = [];
+        var arr_rating = [];
+        if (rating_movie == 0) {
+          alert("Bạn cần đánh giá phim trước");
+        }
+        var exist = false;
+        for (var i = 1; i < localStorage.length; i++) {
+          var key = localStorage.key(i);
+          var value = localStorage.getItem(key);
+          console.log(key, value);
+          value = value.split("|");
+          arr_movieId.push(parseInt(value[0]));
+          arr_rating.push(parseFloat(value[1]));
+          if (value[0] == id_movie) {
+            localStorage.setItem(i.toString(), id_movie + "|" + rating_movie);
+            exist = true;
+          }
+        }
+        if (!exist) {
+          localStorage.setItem(
+            (localStorage.length + 1).toString(),
+            id_movie + "|" + rating_movie
+          );
+          let value = localStorage.getItem(localStorage.length.toString());
+          value = value.split("|");
+          arr_movieId.push(parseInt(value[0]));
+          arr_rating.push(parseFloat(value[1]));
+        }
+        if (localStorage.length + 1 < 3) {
+          alert("Bạn cần đánh giá đủ 2 bộ phim để có thể nhận được đề xuất");
+          return;
+        }
+        function openPopup(data) {
+          // Tạo chuỗi HTML từ mảng đối tượng
+          var moviesList = data
+            .map((movie) => `<p>${movie.title}</p>`)
+            .join(", ");
+
+          // Tạo nội dung của popup
+          var popupContent = `
+            <div>
+              <h2>Chúng tôi đề xuất cho bạn những phim:</h2>
+              ${moviesList}
+            </div>
+          `;
+
+          // Sử dụng window.open() để mở popup
+          var popupWindow = window.open("", "Popup", "width=400, height=300");
+
+          // Thêm nội dung vào popup
+          popupWindow.document.write(popupContent);
+        }
+        $.ajax({
+          type: "POST",
+          url: "http://127.0.0.1:5000/recommendation",
+          contentType: "application/json", // Thêm header Content-Type
+          data: JSON.stringify({
+            userid: user_id,
+            movieid: arr_movieId,
+            rating: arr_rating,
+          }),
+          success: function (response) {
+            // Hiển thị kết quả trả về từ server
+            var moviesList = JSON.parse(response)
+              .map((movie) => `${movie.title}`)
+              .join(", ");
+            alert("Chúng tôi đề xuất cho bạn những bộ phim: " + moviesList);
+          },
+          error: function (error) {
+            console.log("Error:", error);
+          },
+        });
+      });
+
+      var $searchInput = $("#searchInput");
+      var $suggestionsList = $("#suggestionsList");
+
+      $("#searchInput").focus(function () {
+        $(this).css("border-radius", "0 0 5px 5px");
+        $suggestionsList.css("display", "block");
+      });
+
+      $searchInput.on("blur", function () {
+        $(this).css("border-radius", "30px");
+        // Delay 200ms để kiểm tra xem đã click vào li chưa
+        setTimeout(function () {
+          if (!$suggestionsList.is(":focus-within")) {
+            $suggestionsList.css("display", "none");
+          }
+        }, 200);
+      });
+
+      $searchInput.on("input", async function () {
+        $suggestionsList.html("");
+        if ($searchInput.val() == "") {
+          return;
+        }
+
+        var suggestions = await fetch(
+          `http://127.0.0.1:5000/search?str=${encodeURIComponent(
+            $searchInput.val()
+          )}`
+        );
+        var data = await suggestions.json();
+
+        data.forEach(function (suggestion) {
+          var $li = $("<li>")
+            .text(suggestion.title)
+            .data("movie-id", suggestion.movieId); // Lưu trữ movieId trong data attribute
+          $suggestionsList.append($li);
+
+          $li.on("click", function () {
+            var movieId = $(this).data("movie-id");
+            window.location.href = "/ratingpage?movie_id=" + movieId;
+            console.log("Clicked on LI:", $(this).text());
+          });
+        });
       });
     });
   </script>

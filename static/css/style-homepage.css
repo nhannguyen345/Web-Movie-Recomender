@@ -71,3 +71,56 @@ body {
   margin-top: 4px;
   margin-inline-start: 3px;
 }
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 140px;
+}
+
+.pagination a {
+  margin-left: 5px;
+  margin-right: 5px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+#suggestionsList {
+  list-style: none;
+  display: none;
+  padding: 0;
+  margin-right: 67px;
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  top: 8.5%;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+}
+
+#suggestionsList li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#suggestionsList li:hover {
+  background-color: #d3d3d3;
+}
+
+.rounded-bottom {
+  border-radius: 0 0 30px 30px; /* Bán kính bo tròn cho góc dưới */
+}

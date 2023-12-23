@@ -62,3 +62,30 @@ body {
   font-family: Poppins;
   font-size: 15px;
 }
+
+#suggestionsList {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin-right: 67px;
+  position: absolute;
+  background: white;
+  z-index: 1;
+  width: 51%;
+  top: 8.5%;
+  border: 1px solid #ccc;
+}
+
+#suggestionsList li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#suggestionsList li:hover {
+  background-color: #d3d3d3;
+}
+
+.rounded-bottom {
+  border-radius: 0 0 30px 30px; /* Bán kính bo tròn cho góc dưới */
+}

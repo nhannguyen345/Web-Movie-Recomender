@@ -1,40 +1,60 @@
 * {
-	padding: 0;
-	margin: 0;
-	border: none;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 body {
-	font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 input {
-	height: 45px;
-	width: 50%;
-	margin: 5px 0px;
-	padding: 0px 5px;
-	align-self: center;
-	background-color: transparent;
-	border: 0px;
-	border-bottom: 1.5px solid #bababab8;
-	font-size: 16px;
-	color: white;
+  height: 45px;
+  width: 50%;
+  margin: 5px 0px;
+  padding: 0px 5px;
+  align-self: center;
+  background-color: transparent;
+  border: 0px;
+  border-bottom: 1.5px solid #bababab8;
+  font-size: 16px;
+  color: white;
 }
 input::placeholder {
-	color: white;
+  color: white;
 }
 
 input:focus {
-	color: white;
-	/* Đổi màu chữ khi focus thành màu đen */
+  color: white;
+  /* Đổi màu chữ khi focus thành màu đen */
 }
 button {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	height: 50px;
-	width: 50%;
-	align-self: center;
-	font-size: 20px;
-	font-weight: 600;
-	border-radius: 20px;
-	border: 0.5px solid #bababab8;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 50%;
+  align-self: center;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 0.5px solid #bababab8;
+}
+
+.checkbox-container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkbox-container input {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.checkbox-container label {
+  color: #ccc;
+  font-size: 14px;
 }
